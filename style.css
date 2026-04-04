@@ -1,0 +1,58 @@
+body {
+    font: 100%/1.5 system-ui;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  nav {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  img {
+    max-width: 200px;
+    border-radius: 50%;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  
+  label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+  
+  input,
+  textarea {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    padding: 0.5rem;
+    font: inherit;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    height: 150px;
+  }
+  
+  button {
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    font: inherit;
+    cursor: pointer;
+  }
