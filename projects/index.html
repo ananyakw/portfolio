@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects — YOUR_NAME</title>
+  <title>Projects — Ananya Wasker</title>
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
   <nav>
     <a href="../index.html">Home</a>
-    <a href="../projects/index.html">Projects</a>
+    <a href="../projects/index.html" class="current" >Projects</a>
     <a href="../contact/index.html">Contact</a>
     <a href="../cv/index.html">CV</a>
     <a href="https://github.com/ananyakw" target="_blank">GitHub ↗</a>
@@ -18,8 +18,27 @@
 
   <main>
     <h1>Projects</h1>
-    <p>Here are all the projects that I've worked on independently and in teams over the past few years! </p>
-  </main>
+    <p>Here are all the projects that I've worked on independently and in teams over the past few years!</p>
+    
+    <div class="projects">
+      <article>
+        <h2>Invasive Species Tracker</h2>
+        <img src="../images/invasive_species.png" alt="Project screenshot">
+        <p>The Invasive Species Tracker is a full-stack web app that lets users click any point on Earth and receive a real-time, ranked threat assessment of which plant species are most likely to invade that location. It combines live climate data from Open-Meteo, a cosine similarity ML model, and GBIF occurrence filtering to surface only species not yet established in the area, giving researchers and land managers an early warning tool.</p>
+      </article>
+    
+      <article>
+        <h2>Cardiovascular Risk Modeling</h2>
+        <img src="../images/cardiovascular.png" alt="Project screenshot">
+        <p>We analyzed a large health dataset to predict who is at risk for heart disease. We found that people with diabetes are significantly more likely to develop it, and built a model that can identify high-risk individuals before they've been diagnosed.</p>
+      </article>
+    
+      <article>
+        <h2>Modeling Recipe Ratings</h2>
+        <img src="../images/modeling_recipes.png" alt="Project screenshot">
+        <p>I analyzed a dataset of food.com recipes to understand how a recipe's healthiness and complexity affect its ratings, finding that simpler, less healthy recipes tend to get slightly higher ratings. I then built a machine learning model to predict recipe ratings, improving its ability to handle imbalanced data and achieving a macro F1 score of 64%.</p>
+      </article>
+    </div>  </main>
 
 </body>
 </html>
