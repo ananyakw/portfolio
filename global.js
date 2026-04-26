@@ -1,18 +1,20 @@
 console.log("IT'S ALIVE!");
 
 function $$(selector, context = document) {
-  return Array.from(context.querySelectorAll(selector));}
+  return Array.from(context.querySelectorAll(selector));
+}
 
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
   ? "/"
   : "/portfolio/";
 
-  let pages = [
+let pages = [
   { url: '', title: 'Home' },
   { url: 'projects/', title: 'Projects' },
   { url: 'contact/', title: 'Contact' },
   { url: 'cv/', title: 'CV' },
-  { url: 'https://github.com/ananyakw', title: 'GitHub ↗' },];
+  { url: 'https://github.com/ananyakw', title: 'GitHub ↗' },
+];
 
 let nav = document.createElement('nav');
 document.body.prepend(nav);
@@ -22,7 +24,8 @@ for (let p of pages) {
   let title = p.title;
 
   if (!url.startsWith('http')) {
-    url = BASE_PATH + url;}
+    url = BASE_PATH + url;
+  }
 
   let a = document.createElement('a');
   a.href = url;
@@ -31,9 +34,11 @@ for (let p of pages) {
   a.classList.toggle('current', a.host === location.host && a.pathname === location.pathname);
 
   if (a.host !== location.host) {
-    a.target = '_blank';}
+    a.target = '_blank';
+  }
 
-  nav.append(a);}
+  nav.append(a);
+}
 
 document.body.insertAdjacentHTML(
   'afterbegin',
@@ -44,17 +49,20 @@ document.body.insertAdjacentHTML(
       <option value="light">Light</option>
       <option value="dark">Dark</option>
     </select>
-  </label>`);
+  </label>`
+);
 
 let select = document.querySelector('.color-scheme select');
 
 if ('colorScheme' in localStorage) {
   select.value = localStorage.colorScheme;
-  document.documentElement.style.setProperty('color-scheme', localStorage.colorScheme);}
+  document.documentElement.style.setProperty('color-scheme', localStorage.colorScheme);
+}
 
 select.addEventListener('input', function (event) {
   document.documentElement.style.setProperty('color-scheme', event.target.value);
-  localStorage.colorScheme = event.target.value;});
+  localStorage.colorScheme = event.target.value;
+});
 
 let form = document.querySelector('form');
 
@@ -72,3 +80,48 @@ form?.addEventListener('submit', function (event) {
   url += params.join('&');
   location.href = url;
 });
+
+export async function fetchJSON(url) {
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  if (!containerElement) {
+    console.error('renderProjects: containerElement is null or undefined');
+    return;
+  }
+
+  containerElement.innerHTML = '';
+
+  if (!projects || projects.length === 0) {
+    containerElement.innerHTML = '<p>No projects to display.</p>';
+    return;
+  }
+
+  for (const project of projects) {
+    const article = document.createElement('article');
+
+    article.innerHTML = `
+      <${headingLevel}>${project.title}</${headingLevel}>
+      <img src="${project.image}" alt="${project.title}">
+      <p>${project.description}</p>
+    `;
+
+    containerElement.appendChild(article);
+  }
+}
+
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}
