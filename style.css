@@ -91,7 +91,7 @@ button {
 .projects article {
   display: grid;
   grid-template-rows: subgrid;
-  grid-row: span 3;
+  grid-row: span 4;
 }
 
 .projects article h2,
@@ -103,6 +103,18 @@ button {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+}
+
+.project-body {
+  display: grid;
+}
+
+.project-year {
+  margin: 0;
+  font-family: Baskerville, Georgia, serif;
+  font-variant-numeric: oldstyle-nums;
+  color: color-mix(in oklch, canvastext, canvas 40%);
+  font-size: 0.9em;
 }
 
 img.profile {
@@ -149,4 +161,76 @@ img.profile {
   font-size: 2em;
   font-weight: bold;
   color: var(--color-accent);
+}
+
+#projects-pie-plot {
+  max-width: 20em;
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+#projects-pie-plot path {
+  cursor: pointer;
+  transition: 300ms;
+}
+
+#projects-pie-plot:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+}
+
+#projects-pie-plot path.selected {
+  fill: oklch(60% 45% 0) !important;
+}
+
+.viz-container {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  flex-wrap: wrap;
+  margin-block: 2em;
+}
+
+.legend {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  gap: 0.75em;
+  list-style: none;
+  margin: 0;
+  padding: 1em;
+  border: 1px solid color-mix(in oklch, canvastext, canvas 70%);
+  border-radius: 0.5em;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
+  transition: opacity 200ms;
+}
+
+.legend-item.selected {
+  --color: oklch(60% 45% 0) !important;
+}
+
+.swatch {
+  display: inline-block;
+  width: 1em;
+  aspect-ratio: 1 / 1;
+  border-radius: 3px;
+  background-color: var(--color);
+  flex-shrink: 0;
+}
+
+.searchBar {
+  display: block;
+  width: 100%;
+  max-width: 40em;
+  margin-block: 1em;
+  padding: 0.5em 0.75em;
+  font: inherit;
+  border: 1px solid color-mix(in oklch, canvastext, canvas 60%);
+  border-radius: 0.4em;
+  box-sizing: border-box;
 }

@@ -3,32 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ananya Wasker - Personal Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Projects — Ananya Wasker</title>
+  <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
-
   <main>
-    <img class="profile" src="images/image1.jpg" alt="A photo of Ananya Wasker smiling">
+    <h1 class="projects-title">Projects</h1>
+    <p>Here are all the projects that I've worked on independently and in teams over the past few years!</p>
 
-    <h1>Ananya Wasker</h1>
-    <p>Hello, I'm Ananya! I'm an undergraduate Data Science junior at UC San Diego. I love writing, reading, watching movies, and painting!</p>
+    <div class="viz-container">
+      <svg id="projects-pie-plot" viewBox="-50 -50 100 100"></svg>
+      <ul class="legend"></ul>
+    </div>
 
-    <section>
-      <h2>GitHub Profile Stats</h2>
-      <div id="profile-stats">
-      </div>
-    </section>
+    <input
+      class="searchBar"
+      type="search"
+      aria-label="Search projects"
+      placeholder="🔍 Search projects…"
+    />
 
-    <section>
-      <h2>Latest Projects</h2>
-      <div class="projects">
-      </div>
-    </section>
+    <div class="projects"></div>
   </main>
 
-  <script type="module" src="global.js"></script>
-  <script type="module" src="index.js" defer></script>
-
+  <script type="module" src="../global.js"></script>
+  <script type="module" src="projects.js"></script>
 </body>
 </html>
