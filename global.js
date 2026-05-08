@@ -114,7 +114,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
 
     article.innerHTML = `
       <${headingLevel}>${project.title}</${headingLevel}>
-      <img src="${project.image}" alt="${project.title}">
+      <img src="${BASE_PATH}${project.image.replace(/^\//, '')}" alt="${project.title}">
       <div class="project-body">
         <p>${project.description}</p>
         <p class="project-year"><em>${project.year ?? 'N/A'}</em></p>
